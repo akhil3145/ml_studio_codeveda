@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import (
     accuracy_score,
-    confusion_matrix
+    confusion_matrix,classification_report
 )
 
 from services import dataset_service
@@ -74,6 +74,7 @@ def train_knn(
         y_test,
         predictions
     )
+    report = classification_report(y_test,predictions,output_dict=True)
 
     dataset_service.knn_model = model
     dataset_service.knn_feature_columns = (
@@ -88,10 +89,13 @@ def train_knn(
         ),
         "confusion_matrix":
             matrix.tolist(),
+        "classification_report":
+            classification_report(y_test, predictions, output_dict=True),
         "training_rows":
             len(X_train),
         "testing_rows":
-            len(X_test)
+            len(X_test),
+        "classification_report": report
     }
 
 @router.post("/predict-knn")
@@ -114,7 +118,7 @@ def predict_knn(
 
         values = [
             request.features[col]
-            for col in feature_order
+            for col in feature_order # type: ignore
         ]
 
     except KeyError as e:
