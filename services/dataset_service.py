@@ -15,3 +15,8 @@ knn_target_column = None
 logistic_model = None
 logistic_feature_columns = None
 logistic_target_column = None
+
+# Decision Tree
+decision_tree_model = None
+decision_tree_feature_columns = None
+decision_tree_target_column = None
