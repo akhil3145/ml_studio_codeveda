@@ -10,3 +10,8 @@ feature_columns = None
 knn_model = None
 knn_feature_columns = None
 knn_target_column = None
+
+# Logistic Regression
+logistic_model = None
+logistic_feature_columns = None
+logistic_target_column = None
