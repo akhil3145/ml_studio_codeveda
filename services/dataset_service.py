@@ -20,3 +20,8 @@ logistic_target_column = None
 decision_tree_model = None
 decision_tree_feature_columns = None
 decision_tree_target_column = None
+
+# Random Forest
+random_forest_model = None
+random_forest_feature_columns = None
+random_forest_target_column = None
