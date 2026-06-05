@@ -1,8 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 
-function TrainModel({ datasetInfo, targetColumn ,setTargetColumn})  {
-  const [model, setModel] = useState("knn");
+function TrainModel({ datasetInfo, targetColumn ,setTargetColumn,model,setModel})  {
+  
   const [result, setResult] = useState(null);
 
   const handleTrain = async () => {
@@ -23,6 +23,9 @@ function TrainModel({ datasetInfo, targetColumn ,setTargetColumn})  {
       } else if (model === "random-forest") {
         endpoint = "/train-random-forest";
       }
+      else if (model === "linear-regression") {
+      endpoint = "/train-linear-regression";
+    }
 
       let payload = {
         target_column: targetColumn,

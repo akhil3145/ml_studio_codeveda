@@ -12,7 +12,7 @@ function App() {
          setTargetColumn] =
           useState("");
 
-     const[model,selectModel] =
+     const[model,setModel] =
           useState("knn");
 
   return (
@@ -30,7 +30,7 @@ function App() {
         targetColumn={targetColumn}
         setTargetColumn={setTargetColumn}
         model = {model}
-        selectModel = {selectModel}
+        setModel = {setModel}
       />
 
       <PredictModel
