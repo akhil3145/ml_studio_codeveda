@@ -22,8 +22,7 @@ ML Studio is a web-based machine learning platform designed to make core ML work
 This project is built as a serious full-stack application that combines modern frontend development with production-style API design and practical machine learning integration. It is intended to demonstrate applied engineering across UI, API architecture, and model orchestration.
 
 ## Live Demo
-
-https://YOUR-FRONTEND-URL.onrender.com
+https://ml-studio-frontend-xe8i.onrender.com
 
 
 ## 🎯 Why This Project Matters
