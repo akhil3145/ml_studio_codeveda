@@ -109,32 +109,28 @@ ML Studio uses a straightforward full-stack architecture with a React client con
 
 ## 📸 Screenshots
 
-Add real product screenshots here to strengthen the portfolio presentation.
+Below is the current product flow captured from the application UI. Save the screenshot files inside `backend/screenshots/` with these filenames:
 
-### Dashboard Overview
+- `hero-overview.png`
+- `01_upload_dataset.png`
+- `02_train_model.png`
+- `03_prediction_result.png`
 
-`/screenshots/dashboard-overview.png`
+### Hero Overview
+
+![Hero Overview](./screenshots/hero-overview.png)
 
 ### Dataset Upload and Inspection
 
-`/screenshots/dataset-upload.png`
+![Dataset Upload and Inspection](./screenshots/01_upload_dataset.png)
 
 ### Model Training Results
 
-`/screenshots/training-results.png`
+![Model Training Results](./screenshots/02_train_model.png)
 
 ### Prediction Interface
 
-`/screenshots/prediction-interface.png`
-
-Example markdown once screenshots are added:
-
-```md
-![Dashboard Overview](./screenshots/dashboard-overview.png)
-![Dataset Upload](./screenshots/dataset-upload.png)
-![Training Results](./screenshots/training-results.png)
-![Prediction Interface](./screenshots/prediction-interface.png)
-```
+![Prediction Interface](./screenshots/03_prediction_result.png)
 
 ## 📦 Installation
 
@@ -258,6 +254,11 @@ ML_studio/
 |   |   |-- random_forest.py
 |   |   |-- regression.py
 |   |   `-- upload.py
+|   |-- screenshots/
+|   |   |-- 01_upload_dataset.png
+|   |   |-- 02_train_model.png
+|   |   |-- 03_prediction_result.png
+|   |   `-- hero-overview.png
 |   |-- services/
 |   |   `-- dataset_service.py
 |   `-- frontend/
