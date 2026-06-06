@@ -3,8 +3,7 @@ import axios from "axios";
 
 function UploadDataset({ setDatasetInfo }) {
   const [file, setFile] = useState(null);
-  const [localDatasetInfo, setLocalDatasetInfo] =
-    useState(null);
+  const [localDatasetInfo, setLocalDatasetInfo] = useState(null);
 
   const handleUpload = async () => {
     if (!file) {
@@ -23,7 +22,6 @@ function UploadDataset({ setDatasetInfo }) {
 
       setDatasetInfo(response.data);
       setLocalDatasetInfo(response.data);
-
     } catch (error) {
       console.error(error);
       alert("Upload failed");
@@ -31,57 +29,77 @@ function UploadDataset({ setDatasetInfo }) {
   };
 
   return (
-    <div className="card">
-      <h2>📂 Upload Dataset</h2>
+    <section className="card panel">
+      <div className="section-heading">
+        <p className="section-kicker">Step 1</p>
+        <h2>Upload Dataset</h2>
+        <p className="section-description">
+          Add a CSV file to inspect its size and available columns before training.
+        </p>
+      </div>
 
-      <input
-        type="file"
-        onChange={(e) => setFile(e.target.files[0])}
-      />
+      <div className="field-group">
+        <label className="field-label">Dataset file</label>
+        <input
+          type="file"
+          onChange={(e) => setFile(e.target.files[0])}
+        />
+      </div>
 
       <button
         className="upload-btn"
         onClick={handleUpload}
       >
-        Upload
+        Upload Dataset
       </button>
 
       {localDatasetInfo && (
-        <div className="card">
-          <h3>📊 Dataset Information</h3>
+        <div className="subcard">
+          <div className="section-heading compact">
+            <p className="section-kicker">Dataset Summary</p>
+            <h3>Imported file details</h3>
+          </div>
 
-          <p>
-            <strong>File:</strong>{" "}
-            {localDatasetInfo.filename}
-          </p>
+          <div className="metric-grid">
+            <div className="metric-card">
+              <span className="metric-label">File</span>
+              <strong className="metric-value metric-value-text">
+                {localDatasetInfo.filename}
+              </strong>
+            </div>
 
-          <p>
-            <strong>Rows:</strong>{" "}
-            {localDatasetInfo.rows}
-          </p>
+            <div className="metric-card">
+              <span className="metric-label">Rows</span>
+              <strong className="metric-value">
+                {localDatasetInfo.rows}
+              </strong>
+            </div>
 
-          <p>
-            <strong>Columns:</strong>{" "}
-            {localDatasetInfo.columns}
-          </p>
+            <div className="metric-card">
+              <span className="metric-label">Columns</span>
+              <strong className="metric-value">
+                {localDatasetInfo.columns}
+              </strong>
+            </div>
+          </div>
 
-          <div className="column-list">
+          <div className="tag-section">
             <h4>Column Names</h4>
 
-            {localDatasetInfo.column_names.map(
-              (col) => (
+            <div className="column-list">
+              {localDatasetInfo.column_names.map((col) => (
                 <div
                   className="column-item"
                   key={col}
                 >
-                  • {col}
+                  {col}
                 </div>
-              )
-            )}
+              ))}
+            </div>
           </div>
         </div>
       )}
-    </div>
+    </section>
   );
 }
 

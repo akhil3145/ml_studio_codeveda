@@ -5,12 +5,8 @@ function PredictModel({
   datasetInfo,
   targetColumn,
 }) {
-  const [inputs, setInputs] =
-    useState({});
-
-  const [prediction,
-    setPrediction] =
-    useState("");
+  const [inputs, setInputs] = useState({});
+  const [prediction, setPrediction] = useState("");
 
   const handleChange = (
     column,
@@ -22,53 +18,46 @@ function PredictModel({
     });
   };
 
-  const handlePredict =
-    async () => {
-      try {
-        const response =
-          await axios.post(
-            "http://127.0.0.1:8000/predict-knn",
-            {
-              features: inputs,
-            }
-          );
+  const handlePredict = async () => {
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:8000/predict-knn",
+        {
+          features: inputs,
+        }
+      );
 
-        setPrediction(
-          response.data.prediction
-        );
-      } catch (error) {
-        console.error(error);
-        alert(
-          "Prediction failed"
-        );
-      }
-    };
+      setPrediction(response.data.prediction);
+    } catch (error) {
+      console.error(error);
+      alert("Prediction failed");
+    }
+  };
 
-  if (
-    !datasetInfo ||
-    !targetColumn
-  ) {
+  if (!datasetInfo || !targetColumn) {
     return null;
   }
 
-  const featureColumns =
-    datasetInfo.column_names.filter(
-      (col) =>
-        col !== targetColumn
-    );
+  const featureColumns = datasetInfo.column_names.filter(
+    (col) => col !== targetColumn
+  );
 
   return (
-    <div className="card">
-      <h2>🔮 Predict</h2>
+    <section className="card panel full-span">
+      <div className="section-heading">
+        <p className="section-kicker">Step 3</p>
+        <h2>Predict</h2>
+        <p className="section-description">
+          Enter feature values for the selected dataset columns and generate a prediction.
+        </p>
+      </div>
 
-      {featureColumns.map(
-        (column) => (
-          <div key={column}>
-            <label>
+      <div className="predict-grid">
+        {featureColumns.map((column) => (
+          <div key={column} className="field-group">
+            <label className="field-label">
               {column}
             </label>
-
-            <br />
 
             <input
               type="number"
@@ -80,12 +69,9 @@ function PredictModel({
                 )
               }
             />
-
-            <br />
-            <br />
           </div>
-        )
-      )}
+        ))}
+      </div>
 
       <button
         className="upload-btn"
@@ -95,21 +81,15 @@ function PredictModel({
       </button>
 
       {prediction && (
-        <div
-          style={{
-            marginTop: "20px",
-          }}
-        >
-          <h3>
-            Prediction:
-          </h3>
-
-          <p>
+        <div className="subcard prediction-card">
+          <p className="section-kicker">Prediction Result</p>
+          <h3>Output</h3>
+          <p className="prediction-value">
             {prediction}
           </p>
         </div>
       )}
-    </div>
+    </section>
   );
 }
 
