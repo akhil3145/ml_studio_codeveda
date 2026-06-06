@@ -9,12 +9,23 @@ function TrainModel({
   setModel,
 }) {
   const [result, setResult] = useState(null);
+  const [isTraining, setIsTraining] = useState(false);
+  const [status, setStatus] = useState({
+    type: "",
+    message: "",
+  });
 
   const handleTrain = async () => {
     if (!targetColumn) {
       alert("Please select a target column");
       return;
     }
+
+    setIsTraining(true);
+    setStatus({
+      type: "loading",
+      message: "Training model...",
+    });
 
     try {
       let endpoint = "";
@@ -45,9 +56,19 @@ function TrainModel({
       );
 
       setResult(response.data);
+      setStatus({
+        type: "success",
+        message: "Model trained successfully",
+      });
     } catch (error) {
       console.error(error);
+      setStatus({
+        type: "error",
+        message: "Training failed",
+      });
       alert("Training failed");
+    } finally {
+      setIsTraining(false);
     }
   };
 
@@ -101,9 +122,30 @@ function TrainModel({
       <button
         className="upload-btn"
         onClick={handleTrain}
+        disabled={isTraining}
       >
-        Train Model
+        {isTraining ? (
+          <>
+            <span className="button-spinner" aria-hidden="true" />
+            Training...
+          </>
+        ) : (
+          "Train Model"
+        )}
       </button>
+
+      {status.message && (
+        <div className={`status-message ${status.type}`}>
+          {status.type === "loading" && (
+            <span className="status-spinner" aria-hidden="true" />
+          )}
+          <span>
+            {status.type === "success" && "✅ "}
+            {status.type === "error" && "❌ "}
+            {status.message}
+          </span>
+        </div>
+      )}
 
       {result && (
         <div className="subcard">
@@ -116,7 +158,7 @@ function TrainModel({
             <div className="metric-card accent">
               <span className="metric-label">Accuracy</span>
               <strong className="metric-value">
-                {result.accuracy}
+                {(Number(result.accuracy) * 100).toFixed(1)}%
               </strong>
             </div>
 

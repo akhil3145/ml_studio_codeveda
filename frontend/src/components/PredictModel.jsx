@@ -7,6 +7,11 @@ function PredictModel({
 }) {
   const [inputs, setInputs] = useState({});
   const [prediction, setPrediction] = useState("");
+  const [isPredicting, setIsPredicting] = useState(false);
+  const [status, setStatus] = useState({
+    type: "",
+    message: "",
+  });
 
   const handleChange = (
     column,
@@ -19,6 +24,12 @@ function PredictModel({
   };
 
   const handlePredict = async () => {
+    setIsPredicting(true);
+    setStatus({
+      type: "loading",
+      message: "Generating prediction...",
+    });
+
     try {
       const response = await axios.post(
         "http://127.0.0.1:8000/predict-knn",
@@ -28,9 +39,19 @@ function PredictModel({
       );
 
       setPrediction(response.data.prediction);
+      setStatus({
+        type: "success",
+        message: "Prediction complete",
+      });
     } catch (error) {
       console.error(error);
+      setStatus({
+        type: "error",
+        message: "Prediction failed",
+      });
       alert("Prediction failed");
+    } finally {
+      setIsPredicting(false);
     }
   };
 
@@ -76,9 +97,30 @@ function PredictModel({
       <button
         className="upload-btn"
         onClick={handlePredict}
+        disabled={isPredicting}
       >
-        Predict
+        {isPredicting ? (
+          <>
+            <span className="button-spinner" aria-hidden="true" />
+            Predicting...
+          </>
+        ) : (
+          "Predict"
+        )}
       </button>
+
+      {status.message && (
+        <div className={`status-message ${status.type}`}>
+          {status.type === "loading" && (
+            <span className="status-spinner" aria-hidden="true" />
+          )}
+          <span>
+            {status.type === "success" && "✅ "}
+            {status.type === "error" && "❌ "}
+            {status.message}
+          </span>
+        </div>
+      )}
 
       {prediction && (
         <div className="subcard prediction-card">
