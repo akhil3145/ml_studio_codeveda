@@ -1,363 +1,351 @@
-# 🚀 ML Studio - Machine Learning Workflow Platform
+# ML Studio
 
 <div align="center">
 
-![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
-![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green?logo=fastapi)
-![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-orange?logo=scikitlearn)
-![Pandas](https://img.shields.io/badge/Pandas-Data%20Processing-purple?logo=pandas)
-![Status](https://img.shields.io/badge/Status-Active-success)
+![React](https://img.shields.io/badge/Frontend-React-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Build-Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![Python](https://img.shields.io/badge/Language-Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/ML-scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Active%20Development-0F172A?style=for-the-badge)
 
-### A FastAPI-powered Machine Learning Studio for Dataset Analysis, Data Preprocessing, Model Training, and Real-Time Predictions.
+**A full-stack machine learning dashboard for dataset upload, model training, evaluation, and browser-based prediction.**
 
 </div>
 
 ---
 
-# 📖 Overview
+## 🚀 Overview
 
-**ML Studio** is a machine learning platform developed using **FastAPI**, **Pandas**, and **Scikit-Learn**.
+ML Studio is a web-based machine learning platform designed to make core ML workflows accessible through a clean, interactive dashboard. Users can upload CSV datasets, inspect dataset structure, select a target column, train multiple machine learning models, review performance metrics, and generate predictions directly from the browser.
 
-The project enables users to upload datasets, perform preprocessing operations, train machine learning models, evaluate performance metrics, and generate predictions through REST APIs.
+This project is built as a serious full-stack application that combines modern frontend development with production-style API design and practical machine learning integration. It is intended to demonstrate applied engineering across UI, API architecture, and model orchestration.
 
-Unlike traditional notebook-based workflows, this project exposes machine learning functionality through production-style API endpoints, making it easy to integrate with web applications and dashboards.
+## 🎯 Why This Project Matters
 
----
+ML Studio is more than a demo interface for machine learning. It reflects the kind of product thinking required to turn technical workflows into usable software:
 
-# ✨ Features
+- Browser-based dataset ingestion and model workflow
+- Clear separation between frontend and backend responsibilities
+- Multiple model training routes exposed through a consistent API
+- Responsive user interface with status indicators and feedback states
+- Extensible foundation for adding preprocessing, experiment tracking, and model persistence
 
-## 📂 Dataset Management
+## ✨ Features
 
-✅ Upload CSV Datasets
+- Upload CSV datasets
+- Dataset summary and feature inspection
+- Target column selection
+- Train machine learning models
+- KNN Classification
+- Logistic Regression
+- Decision Tree
+- Random Forest
+- Linear Regression
+- Real-time prediction interface
+- Accuracy and training metrics
+- Responsive dashboard UI
+- Loading states and status indicators
 
-✅ Dataset Preview
+## 🔄 Workflow
 
-✅ Dataset Metadata Analysis
+1. Upload dataset
+2. Inspect dataset information
+3. Select target column
+4. Select model
+5. Train model
+6. View metrics
+7. Make predictions
 
-✅ Data Type Inspection
+## 🛠️ Tech Stack
 
-✅ Missing Value Detection
+### 🎨 Frontend
 
----
+- React
+- Vite
+- Axios
+- CSS
 
-## 🧹 Data Preprocessing
+### ⚙️ Backend
 
-### Missing Value Handling
+- FastAPI
+- Python
+- Pandas
+- NumPy
+- Scikit-learn
 
-- Mean Imputation
-- Median Imputation
-- Mode Imputation
+## 🏗️ Architecture
 
-### Encoding Techniques
-
-- Label Encoding
-- One-Hot Encoding
-
-### Feature Scaling
-
-- Standard Scaling
-- Min-Max Scaling
-
----
-
-## 🤖 Machine Learning
-
-### Linear Regression
-
-- Train/Test Split
-- Model Training
-- Coefficient Analysis
-- Intercept Analysis
-- Performance Evaluation
-
-### Prediction API
-
-- Real-time Predictions
-- Dynamic Feature Input
-- Model Reusability
-
----
-
-# 🏗️ System Architecture
+ML Studio uses a straightforward full-stack architecture with a React client consuming a FastAPI backend.
 
 ```text
-                User
-                  │
-                  ▼
-        FastAPI REST Endpoints
-                  │
-                  ▼
-          Dataset Processing
-                  │
-                  ▼
-           Data Preprocessing
-                  │
-                  ▼
-         Machine Learning Model
-                  │
-                  ▼
-          Evaluation Metrics
-                  │
-                  ▼
-             Predictions
+[ React + Vite Frontend ]
+          |
+          | HTTP / JSON
+          v
+[ FastAPI Backend ]
+          |
+          | Dataset parsing, model training, prediction
+          v
+[ Pandas + NumPy + scikit-learn ]
 ```
 
----
+### 🖥️ Frontend Responsibilities
 
-# 🛠️ Technology Stack
+- File upload UI
+- Dataset summary display
+- Target/model selection
+- Metrics presentation
+- Prediction form
+- Loading and status feedback
 
-| Category | Technology |
-|-----------|------------|
-| Backend | FastAPI |
-| Language | Python |
-| Data Processing | Pandas |
-| Numerical Computing | NumPy |
-| Machine Learning | Scikit-Learn |
-| Validation | Pydantic |
-| Server | Uvicorn |
-| Version Control | Git & GitHub |
+### 🔌 Backend Responsibilities
 
----
+- CSV ingestion
+- Dataset metadata extraction
+- Model training endpoints
+- Prediction endpoint
+- ML workflow orchestration using scikit-learn
 
-# 📁 Project Structure
+## 📸 Screenshots
 
-```text
-ML_STUDIO/
-│
-├── backend/
-│   ├── models/
-│   ├── routes/
-│   ├── services/
-│   ├── main.py
-│   └── requirements.txt
-│
-├── frontend/
-│
-├── screenshots/
-│
-├── .gitignore
-│
-└── README.md
+Add real product screenshots here to strengthen the portfolio presentation.
+
+### Dashboard Overview
+
+`/screenshots/dashboard-overview.png`
+
+### Dataset Upload and Inspection
+
+`/screenshots/dataset-upload.png`
+
+### Model Training Results
+
+`/screenshots/training-results.png`
+
+### Prediction Interface
+
+`/screenshots/prediction-interface.png`
+
+Example markdown once screenshots are added:
+
+```md
+![Dashboard Overview](./screenshots/dashboard-overview.png)
+![Dataset Upload](./screenshots/dataset-upload.png)
+![Training Results](./screenshots/training-results.png)
+![Prediction Interface](./screenshots/prediction-interface.png)
 ```
 
----
+## 📦 Installation
 
-# 🔄 Application Workflow
+### ✅ Prerequisites
 
-```text
-Upload Dataset
-       │
-       ▼
-Dataset Analysis
-       │
-       ▼
-Preprocessing
-       │
-       ▼
-Train Model
-       │
-       ▼
-Evaluate Performance
-       │
-       ▼
-Store Model
-       │
-       ▼
-Generate Predictions
-```
+Make sure you have installed:
 
----
+- Node.js 18+
+- npm
+- Python 3.10+
+- pip
 
-# 📊 Model Performance
-
-## Boston Housing Dataset
-
-### Dataset Statistics
-
-| Metric | Value |
-|---------|---------|
-| Rows | 506 |
-| Columns | 14 |
-| Missing Values | 0 |
-
----
-
-## Linear Regression Results
-
-| Metric | Score |
-|---------|---------|
-| R² Score | 0.6688 |
-| Mean Squared Error | 24.2911 |
-| Training Samples | 404 |
-| Testing Samples | 102 |
-
----
-
-## Prediction Example
-
-### Input Features
-
-```json
-{
-  "0": 0.00632,
-  "1": 18,
-  "2": 2.31,
-  "3": 0,
-  "4": 0.538,
-  "5": 6.575,
-  "6": 65.2,
-  "7": 4.09,
-  "8": 1,
-  "9": 296,
-  "10": 15.3,
-  "11": 396.9,
-  "12": 4.98
-}
-```
-
-### Model Prediction
-
-```json
-{
-  "prediction": 29.9534
-}
-```
-
-### Actual Value
-
-```text
-24.0
-```
-
----
-
-# 📸 Screenshots
-
-## 🔹 API Overview
-
-![API Overview](screenshots/01_api_overview.png)
-
----
-
-## 🔹 Dataset Upload
-
-![Upload Dataset](screenshots/02_upload_form.png)
-
----
-
-## 🔹 Dataset Successfully Loaded
-
-![Dataset Loaded](screenshots/03_dataset_uploaded.png)
-
----
-
-## 🔹 Dataset Information
-
-![Dataset Information](screenshots/04_dataset_info.png)
-
----
-
-## 🔹 Data Preprocessing
-
-![Data Preprocessing](screenshots/05_preprocessing_scale.png)
-
----
-
-## 🔹 Linear Regression Training
-
-![Training Results](screenshots/06_regression_training.png)
-
----
-
-# 🚀 Getting Started
-
-## Clone Repository
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/akhil3145/ml_studio_codeveda.git
+git clone https://github.com/your-username/ml-studio.git
+cd ml-studio
 ```
 
----
-
-## Navigate to Backend
+### 2. Set Up the Backend
 
 ```bash
-cd ml_studio_codeveda/backend
+cd backend
+python -m venv venv
 ```
 
----
+Activate the virtual environment:
 
-## Install Dependencies
+#### Windows
+
+```bash
+venv\Scripts\activate
+```
+
+#### macOS / Linux
+
+```bash
+source venv/bin/activate
+```
+
+Install backend dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
----
-
-## Run FastAPI Server
+Start the FastAPI server:
 
 ```bash
 uvicorn main:app --reload
 ```
 
----
+Backend should run on:
 
-## Open Swagger Documentation
-
-```text
-http://127.0.0.1:8000/docs
+```bash
+http://127.0.0.1:8000
 ```
 
----
+### 3. Set Up the Frontend
 
-# 🎯 Future Enhancements
+Open a new terminal:
 
-### Machine Learning
+```bash
+cd backend/frontend
+npm install
+npm run dev
+```
 
-- [ ] K-Nearest Neighbors (KNN)
-- [ ] Logistic Regression
-- [ ] Decision Tree
-- [ ] Random Forest
-- [ ] Support Vector Machine (SVM)
+Frontend should run on:
 
-### Platform Features
+```bash
+http://127.0.0.1:5173
+```
 
-- [ ] React Frontend Dashboard
-- [ ] Model Persistence (Joblib)
-- [ ] Authentication System
-- [ ] Dataset Versioning
-- [ ] Docker Deployment
-- [ ] Cloud Deployment
+## ▶️ Usage
 
----
+### 📁 Upload a Dataset
 
-# 💡 Key Learnings
+- Open the frontend in the browser
+- Upload a CSV file
+- Wait for dataset information to appear
 
-Through this project I gained practical experience in:
+### 🔍 Inspect the Dataset
 
-- Designing REST APIs with FastAPI
-- Data preprocessing pipelines
-- Machine Learning model training
-- Feature engineering techniques
-- Model evaluation and validation
-- Backend architecture design
-- Git and GitHub workflows
+- Review file name, row count, and column count
+- Inspect available feature and target columns
 
----
+### 🧠 Train a Model
 
-# 👨‍💻 Author
+- Select a machine learning model
+- Choose the target column
+- Click `Train Model`
+- Review accuracy and training metrics
 
-## Akhil Pandey
+### 📈 Make Predictions
 
-Computer Science Student | Machine Learning Enthusiast | Backend Developer
+- Enter values for feature columns
+- Click `Predict`
+- Review the prediction output in the dashboard
 
-📌 Built as part of the **Codveda Machine Learning Internship Program**
+## 🗂️ Project Structure
 
----
+```text
+ML_studio/
+|-- README.md
+|-- backend/
+|   |-- main.py
+|   |-- requirements.txt
+|   |-- models/
+|   |   |-- decision_tree_models.py
+|   |   |-- knn_models.py
+|   |   |-- logistic_models.py
+|   |   |-- preprocessing_models.py
+|   |   |-- random_forest_models.py
+|   |   `-- regression_models.py
+|   |-- routes/
+|   |   |-- decision_tree.py
+|   |   |-- knn.py
+|   |   |-- logistic_regression.py
+|   |   |-- preprocessing.py
+|   |   |-- random_forest.py
+|   |   |-- regression.py
+|   |   `-- upload.py
+|   |-- services/
+|   |   `-- dataset_service.py
+|   `-- frontend/
+|       |-- package.json
+|       |-- vite.config.js
+|       |-- public/
+|       `-- src/
+|           |-- App.jsx
+|           |-- App.css
+|           |-- index.css
+|           `-- components/
+|               |-- UploadDataset.jsx
+|               |-- TrainModel.jsx
+|               `-- PredictModel.jsx
+```
 
-<div align="center">
+## 🌐 API Overview
 
-⭐ If you found this project interesting, consider starring the repository.
+The frontend communicates with the backend using HTTP requests via Axios.
 
-</div>
+### Example Routes
+
+- `POST /upload`
+- `POST /train-knn`
+- `POST /train-logistic`
+- `POST /train-decision-tree`
+- `POST /train-random-forest`
+- `POST /train-linear-regression`
+- `POST /predict-knn`
+
+This route-based design keeps each training workflow modular and easy to extend.
+
+## 🚧 Future Improvements
+
+- Model persistence and download support
+- Additional evaluation metrics such as precision, recall, F1-score, and RMSE
+- Confusion matrix and visual performance charts
+- Feature preprocessing controls from the UI
+- Hyperparameter tuning panel
+- Model comparison view
+- Authentication and user workspaces
+- Deployment with Docker and cloud hosting
+- File validation and schema-aware input handling
+- Prediction support for all trained model types
+
+## 📚 Learning Outcomes
+
+This project demonstrates practical experience in:
+
+- Building full-stack applications with React and FastAPI
+- Designing clean API-driven frontend workflows
+- Integrating machine learning models into user-facing software
+- Managing dataset upload and inspection pipelines
+- Structuring backend services and route modules
+- Presenting ML outputs through thoughtful UI/UX
+- Handling asynchronous loading, success, and error states
+- Organizing a project in a scalable, recruiter-friendly way
+
+## 👤 Author
+
+**Your Name**  
+Software Developer | Machine Learning Enthusiast | Full-Stack Builder
+
+- GitHub: [https://github.com/your-username](https://github.com/your-username)
+- LinkedIn: [https://linkedin.com/in/your-profile](https://linkedin.com/in/your-profile)
+- Portfolio: [https://your-portfolio.com](https://your-portfolio.com)
+
+Replace the links above with your actual profiles before publishing.
+
+## 🙌 Acknowledgements
+
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [FastAPI](https://fastapi.tiangolo.com/)
+- [Pandas](https://pandas.pydata.org/)
+- [NumPy](https://numpy.org/)
+- [scikit-learn](https://scikit-learn.org/)
+
+Special thanks to the open-source ecosystem for the tools and libraries that make projects like this possible.
+
+## 💼 Portfolio Note
+
+ML Studio is positioned as a practical engineering project that bridges product design, API development, and applied machine learning. It is especially suitable for showcasing:
+
+- Full-stack development ability
+- API integration skills
+- ML application engineering
+- UI/UX improvement work
+- End-to-end product execution
+
+If you are using this in a portfolio, pair the README with polished screenshots, a short demo GIF, and a deployed version for the strongest presentation.
