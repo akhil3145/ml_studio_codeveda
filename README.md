@@ -318,14 +318,14 @@ This project demonstrates practical experience in:
 
 ## 👤 Author
 
-**Your Name**  
-Software Developer | Machine Learning Enthusiast | Full-Stack Builder
+**Akhil Pandey**
 
-- GitHub: [https://github.com/your-username](https://github.com/your-username)
-- LinkedIn: [https://linkedin.com/in/your-profile](https://linkedin.com/in/your-profile)
-- Portfolio: [https://your-portfolio.com](https://your-portfolio.com)
+Computer Science Student | Machine Learning Intern
 
-Replace the links above with your actual profiles before publishing.
+GitHub: https://github.com/akhil3145
+
+LinkedIn: https://www.linkedin.com/in/akhil3145/
+
 
 ## 🙌 Acknowledgements
 
@@ -348,4 +348,3 @@ ML Studio is positioned as a practical engineering project that bridges product 
 - UI/UX improvement work
 - End-to-end product execution
 
-If you are using this in a portfolio, pair the README with polished screenshots, a short demo GIF, and a deployed version for the strongest presentation.
